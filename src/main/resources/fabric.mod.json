@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "damagestatisticsmod",
+  "version": "${version}",
+  "name": "Damage Statistics Mod",
+  "description": "A lightweight HUD that tracks damage dealt, damage taken, critical hits, and more during combat.",
+  "authors": [
+    "Lounmala"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "Lounmala.damagestatisticsmod.client.DamageStatisticsClient"
+    ]
+  },
+  "mixins": [
+    "damagestatisticsmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
