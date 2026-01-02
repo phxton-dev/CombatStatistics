@@ -63,9 +63,9 @@ public class HudConfigScreen extends Screen {
         context.drawCenteredTextWithShadow(textRenderer, "§7Drag to Move | Scroll to Scale", width / 2, 35, 0xFFFFFFFF);
 
         if (ModConfig.isVisible) {
-            context.getMatrices().pushMatrix();
-            context.getMatrices().translate((float)ModConfig.posX, (float)ModConfig.posY);
-            context.getMatrices().scale(ModConfig.scale, ModConfig.scale);
+            context.getMatrices().push();
+            context.getMatrices().translate(ModConfig.posX, ModConfig.posY, 0.0);
+            context.getMatrices().scale(ModConfig.scale, ModConfig.scale, 1.0f);
 
             int white = 0xFFFFFFFF;
             context.drawTextWithShadow(textRenderer, "§b§l» PVP STATS", 0, 0, 0xFF55FFFF);
@@ -75,7 +75,7 @@ public class HudConfigScreen extends Screen {
             context.drawTextWithShadow(textRenderer, String.format("Dmg:    %.1f", CombatStats.totalDmg), 0, 42, white);
             context.drawTextWithShadow(textRenderer, String.format("Taken:  %.1f", CombatStats.incomingDamage), 0, 52, 0xFFFF5555);
 
-            context.getMatrices().popMatrix();
+            context.getMatrices().pop();
         } else {
             context.drawCenteredTextWithShadow(textRenderer, "§c(HUD Hidden)", width / 2, height / 2, 0xFFFFFFFF);
         }

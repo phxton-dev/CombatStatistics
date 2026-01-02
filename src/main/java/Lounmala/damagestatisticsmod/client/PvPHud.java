@@ -13,9 +13,9 @@ public class PvPHud implements HudRenderCallback {
         if (client.player == null) return;
         if (!ModConfig.isVisible) return;
 
-        context.getMatrices().pushMatrix();
-        context.getMatrices().translate((float)ModConfig.posX, (float)ModConfig.posY);
-        context.getMatrices().scale(ModConfig.scale, ModConfig.scale);
+        context.getMatrices().push();
+        context.getMatrices().translate(ModConfig.posX, ModConfig.posY, 0.0);
+        context.getMatrices().scale(ModConfig.scale, ModConfig.scale, 1.0f);
 
         int white = 0xFFFFFFFF;
 
@@ -28,6 +28,6 @@ public class PvPHud implements HudRenderCallback {
         // Updated "Taken" Line
         context.drawTextWithShadow(client.textRenderer, String.format("Taken:  %.1f", CombatStats.incomingDamage), 0, 52, 0xFFFF5555);
 
-        context.getMatrices().popMatrix();
+        context.getMatrices().pop();
     }
 }

@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Gradle Build 1.21.4",
+			"type": "shell",
+			"command": ".\\gradlew",
+			"args": [
+				"build",
+				"-x",
+				"remapSourcesJar"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$gradle"
+			]
+		}
+	]
+}
